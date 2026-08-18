@@ -1,11 +1,11 @@
 const footer: { title: string; href: string }[] = [
   {
-    title: "Blog",
-    href: "/blogs",
+    title: "GitHub",
+    href: "https://github.com/andoryupurfire",
   },
   {
-    title: "Newsletter",
-    href: "/news",
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/andres-rodriguez-0134601aa/",
   },
 ];
 

@@ -14,7 +14,7 @@ export default function Footer() {
           exit="exit"
         >
           {/* space */}
-          <span>Inspired by:</span> Studio Lumio
+          <span>Perfil:</span> Backend Developer
         </motion.li>
       </ul>
       <ul>
@@ -25,7 +25,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Typography:</span> Inter
+          <span>Stack:</span> Java / Spring Boot
         </motion.li>
       </ul>
       <ul>
@@ -36,7 +36,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          <span>Images:</span> Unsplash
+          <span>Base de datos:</span> PostgreSQL / MySQL
         </motion.li>
       </ul>
       <ul>
@@ -47,7 +47,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          Blog
+          GitHub
         </motion.li>
         <motion.li
           custom={[0.3, 0]}
@@ -56,7 +56,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          Newsletter
+          LinkedIn
         </motion.li>
       </ul>
     </div>

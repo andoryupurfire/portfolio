@@ -1,9 +1,9 @@
 import ResumeView from "./resume-view";
 
 export const metadata = {
-  title: "Résumé | Naresh Khatri",
+  title: "CV | Andres Felipe Rodriguez Rodriguez",
   description:
-    "Résumé of Naresh Khatri — Senior Full-Stack Engineer. View online or download the PDF.",
+    "CV de Andres Felipe Rodriguez Rodriguez, Backend Developer enfocado en Java, Spring Boot y APIs REST.",
 };
 
 export default function ResumePage() {
