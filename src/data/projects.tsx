@@ -4,6 +4,27 @@ import { TypographyH3, TypographyP } from "@/components/ui/typography";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { FaJava } from "react-icons/fa";
+import type { IconType } from "react-icons";
+import {
+  SiCss3,
+  SiDocker,
+  SiHibernate,
+  SiHtml5,
+  SiJavascript,
+  SiJsonwebtokens,
+  SiMysql,
+  SiPostgresql,
+  SiPostman,
+  SiReact,
+  SiRender,
+  SiSpring,
+  SiSpringboot,
+  SiSpringsecurity,
+  SiSupabase,
+  SiSwagger,
+  SiTailwindcss,
+} from "react-icons/si";
 
 const BASE_PATH = "/assets/projects-screenshots";
 
@@ -47,35 +68,32 @@ export type Skill = {
   icon: ReactNode;
 };
 
-const chip = (title: string, text?: string): Skill => ({
+const iconChip = (title: string, Icon: IconType, color: string): Skill => ({
   title,
   bg: "black",
   fg: "white",
-  icon: <span className="text-[10px] font-bold">{text ?? title.slice(0, 4)}</span>,
+  icon: <Icon aria-label={title} className="h-full w-full" style={{ color }} />,
 });
 
 const PROJECT_SKILLS = {
-  java: chip("Java", "Java"),
-  spring: chip("Spring Boot", "SB"),
-  security: chip("Spring Security", "Sec"),
-  jwt: chip("JWT", "JWT"),
-  jpa: chip("Spring Data JPA", "JPA"),
-  hibernate: chip("Hibernate", "Hb"),
-  postgres: chip("PostgreSQL", "SQL"),
-  mysql: chip("MySQL", "SQL"),
-  docker: chip("Docker", "Dock"),
-  render: chip("Render", "Ren"),
-  supabase: chip("Supabase", "Supa"),
-  swagger: chip("Swagger / OpenAPI", "API"),
-  postman: chip("Postman", "Post"),
-  junit: chip("JUnit", "Test"),
-  mockito: chip("Mockito", "Mock"),
-  html: chip("HTML", "HTML"),
-  css: chip("CSS", "CSS"),
-  js: chip("JavaScript", "JS"),
-  react: chip("React", "React"),
-  astro: chip("Astro", "Astro"),
-  tailwind: chip("Tailwind CSS", "TW"),
+  java: iconChip("Java", FaJava, "#f89820"),
+  spring: iconChip("Spring Boot", SiSpringboot, "#6db33f"),
+  security: iconChip("Spring Security", SiSpringsecurity, "#6db33f"),
+  jwt: iconChip("JWT", SiJsonwebtokens, "#d63aff"),
+  jpa: iconChip("Spring Data JPA", SiSpring, "#6db33f"),
+  hibernate: iconChip("Hibernate", SiHibernate, "#bcae79"),
+  postgres: iconChip("PostgreSQL", SiPostgresql, "#4169e1"),
+  mysql: iconChip("MySQL", SiMysql, "#4479a1"),
+  docker: iconChip("Docker", SiDocker, "#2496ed"),
+  render: iconChip("Render", SiRender, "#46e3b7"),
+  supabase: iconChip("Supabase", SiSupabase, "#3ecf8e"),
+  swagger: iconChip("Swagger / OpenAPI", SiSwagger, "#85ea2d"),
+  postman: iconChip("Postman", SiPostman, "#ff6c37"),
+  html: iconChip("HTML", SiHtml5, "#e34f26"),
+  css: iconChip("CSS", SiCss3, "#1572b6"),
+  js: iconChip("JavaScript", SiJavascript, "#f7df1e"),
+  react: iconChip("React", SiReact, "#61dafb"),
+  tailwind: iconChip("Tailwind CSS", SiTailwindcss, "#38bdf8"),
 };
 
 export type Project = {
