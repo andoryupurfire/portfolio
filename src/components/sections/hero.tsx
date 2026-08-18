@@ -50,14 +50,14 @@ const HeroSection = () => {
                     <TooltipTrigger asChild>
                       <h1
                         className={cn(
-                          "-ml-[6px] leading-none text-transparent text-slate-800 text-left",
-                          "font-bold text-7xl md:text-7xl lg:text-8xl xl:text-9xl",
-                          "cursor-default text-edge-outline font-display "
+                          "-ml-[4px] max-w-[min(640px,42vw)] text-left leading-[0.92]",
+                          "text-transparent text-slate-800",
+                          "font-bold text-6xl sm:text-7xl md:text-7xl lg:text-8xl xl:text-[6.75rem]",
+                          "cursor-default text-edge-outline font-display"
                         )}
                       >
-                        Andres Felipe
-                        <br className="md:block hiidden" />
-                        Rodriguez
+                        <span className="block whitespace-nowrap">Andres</span>
+                        <span className="block whitespace-nowrap">Rodriguez</span>
                       </h1>
                     </TooltipTrigger>
                     <TooltipContent
