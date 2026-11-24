@@ -1,26 +1,26 @@
-# Portafolio — Andres Rodriguez
+# Andres Rodriguez — Portfolio
 
-Backend Developer enfocado en Java y Spring Boot.
-Sitio de una sola página, estático, sin animaciones pesadas: quién soy, qué sé hacer, proyectos reales y contacto.
+Personal site of Andres Rodriguez, Full-Stack Software Developer (Java, Spring Boot, React).
+Live at **https://afrodriguez.dev**.
 
 ## Stack
 
-Next.js (export estático) · React · TypeScript · Tailwind CSS. Sin dependencias de UI ni de animación.
+Next.js (static export) · React · TypeScript · Tailwind CSS. Brand logos from Simple Icons, rendered at build time.
 
-## Editar contenido
+## Editing content
 
-Todo el texto (perfil, proyectos, stack, contacto) está en [`src/data/config.ts`](src/data/config.ts).
+All text (profile, experience, projects, stack, contact) lives in [`src/data/config.ts`](src/data/config.ts).
+The CV PDFs are served from `public/cv/` and shown at `/cv` (English) and `/es/cv` (Spanish).
 
-## Desarrollo
+## Development
 
 ```bash
 pnpm install
 pnpm dev      # http://localhost:3000
-pnpm build    # genera /out, listo para GitHub Pages
+pnpm build    # static site in /out
 ```
 
-## Contacto
+## Deploy
 
-- Email: anferoro2004@gmail.com
-- GitHub: https://github.com/andoryupurfire
-- LinkedIn: https://www.linkedin.com/in/andres-rodriguez-0134601aa/
+Netlify builds with `pnpm build` and publishes `out/` (see [`netlify.toml`](netlify.toml)).
+Old URLs are redirected in [`public/_redirects`](public/_redirects).

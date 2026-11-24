@@ -42,8 +42,44 @@ body {
   @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg rounded;
 }
 
+/* Project dialog: fade + slight scale on open. */
+.project-dialog::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.project-dialog[open] {
+  animation: dialog-in 180ms ease-out;
+}
+
+.project-dialog[open]::backdrop {
+  animation: backdrop-in 180ms ease-out;
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@keyframes backdrop-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Keep the page from scrolling behind an open dialog. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .project-dialog[open],
+  .project-dialog[open]::backdrop {
+    animation: none;
   }
 }
