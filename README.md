@@ -1,28 +1,23 @@
-# Portafolio - Andres Felipe Rodriguez Rodriguez
+# Portafolio — Andres Rodriguez
 
-Portafolio personal basado en una plantilla 3D, adaptado para presentar mi
-perfil como Ingeniero Informatico y Backend Developer enfocado en Java, Spring
-Boot y APIs REST.
+Backend Developer enfocado en Java y Spring Boot.
+Sitio de una sola página, estático, sin animaciones pesadas: quién soy, qué sé hacer, proyectos reales y contacto.
 
-## Enfoque
+## Stack
 
-- Desarrollo backend con Java y Spring Boot.
-- Construccion de APIs REST claras, mantenibles y documentadas.
-- Persistencia con Spring Data JPA, Hibernate, MySQL y PostgreSQL.
-- Seguridad con Spring Security y JWT.
-- Validacion de APIs con Postman y documentacion con Swagger / OpenAPI.
-- Despliegue con Docker, Render y Supabase.
+Next.js (export estático) · React · TypeScript · Tailwind CSS. Sin dependencias de UI ni de animación.
 
-## Proyecto destacado
+## Editar contenido
 
-### Agro+
+Todo el texto (perfil, proyectos, stack, contacto) está en [`src/data/config.ts`](src/data/config.ts).
 
-Backend de gestion agricola para productores comerciales colombianos. Permite
-registrar fincas, lotes y ciclos de cultivo con seguridad por propietario,
-catalogo agronomico controlado y reglas de negocio para avance de etapas.
+## Desarrollo
 
-- Repositorio: https://github.com/andoryupurfire/agroPlusBackend
-- API en vivo: https://agroplusbackend-64gb.onrender.com
+```bash
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # genera /out, listo para GitHub Pages
+```
 
 ## Contacto
 
