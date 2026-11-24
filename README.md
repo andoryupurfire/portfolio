@@ -1,31 +1,26 @@
-# Portafolio - Andres Felipe Rodriguez Rodriguez
+# Andres Rodriguez — Portfolio
 
-Portafolio personal basado en una plantilla 3D, adaptado para presentar mi
-perfil como Ingeniero Informatico y Backend Developer enfocado en Java, Spring
-Boot y APIs REST.
+Personal site of Andres Rodriguez, Full-Stack Software Developer (Java, Spring Boot, React).
+Live at **https://afrodriguez.dev**.
 
-## Enfoque
+## Stack
 
-- Desarrollo backend con Java y Spring Boot.
-- Construccion de APIs REST claras, mantenibles y documentadas.
-- Persistencia con Spring Data JPA, Hibernate, MySQL y PostgreSQL.
-- Seguridad con Spring Security y JWT.
-- Validacion de APIs con Postman y documentacion con Swagger / OpenAPI.
-- Despliegue con Docker, Render y Supabase.
+Next.js (static export) · React · TypeScript · Tailwind CSS. Brand logos from Simple Icons, rendered at build time.
 
-## Proyecto destacado
+## Editing content
 
-### Agro+
+All text (profile, experience, projects, stack, contact) lives in [`src/data/config.ts`](src/data/config.ts).
+The CV PDFs are served from `public/cv/` and shown at `/cv` (English) and `/es/cv` (Spanish).
 
-Backend de gestion agricola para productores comerciales colombianos. Permite
-registrar fincas, lotes y ciclos de cultivo con seguridad por propietario,
-catalogo agronomico controlado y reglas de negocio para avance de etapas.
+## Development
 
-- Repositorio: https://github.com/andoryupurfire/agroPlusBackend
-- API en vivo: https://agroplusbackend-64gb.onrender.com
+```bash
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # static site in /out
+```
 
-## Contacto
+## Deploy
 
-- Email: anferoro2004@gmail.com
-- GitHub: https://github.com/andoryupurfire
-- LinkedIn: https://www.linkedin.com/in/andres-rodriguez-0134601aa/
+Netlify builds with `pnpm build` and publishes `out/` (see [`netlify.toml`](netlify.toml)).
+Old URLs are redirected in [`public/_redirects`](public/_redirects).

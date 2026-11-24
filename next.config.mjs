@@ -1,24 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Sitio 100% estático: `next build` genera /out, listo para GitHub Pages.
+  output: "export",
   reactStrictMode: true,
-  cacheComponents: true,
-  
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          // SAMEORIGIN (not DENY) so the resume page can embed its own PDF;
-          // still blocks other sites from framing us (clickjacking protection).
-          { key: "X-Frame-Options", value: "SAMEORIGIN" },
-          { key: "X-Content-Type-Options", value: "nosniff" },
-          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-        ],
-      },
-     
-    ];
-  },
+  images: { unoptimized: true },
+  trailingSlash: true,
+  turbopack: { root: import.meta.dirname },
 };
 
 export default nextConfig;

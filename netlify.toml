@@ -1,0 +1,7 @@
+# Static site: `next build` with `output: "export"` writes everything to /out.
+[build]
+  command = "pnpm build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"

@@ -1,103 +1,45 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Unbounded } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import { config } from "@/data/config";
+import { site } from "@/data/config";
 
-import Script from "next/script";
-import SiteFrame from "@/components/site-frame";
-import { Providers } from "@/components/providers";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { UMAMI_SRC } from "@/lib/umami";
-
-/* Body/base font — Space Grotesk, bound to --font-sans (applied as `font-sans`
- * on <html>). Everything that isn't a heading inherits this. */
-const spaceGroteskSans = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-/* Heading font — Unbounded, bound to --font-display and applied to h1–h6. */
-const unbounded = Unbounded({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 export const metadata: Metadata = {
-  // pins every relative/OG url to the .dev origin so nothing canonicalises back to .site
-  metadataBase: new URL(config.site),
-  alternates: { canonical: "./" },
-  title: config.title,
-  description: config.description.long,
-  keywords: config.keywords,
-  authors: [{ name: config.author }],
-  icons: {
-    icon: "/icon.png",
-    shortcut: "/icon.png",
-    apple: "/icon.png",
-  },
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  keywords: site.keywords,
+  authors: [{ name: site.fullName, url: site.url }],
+  alternates: { canonical: "/" },
+  icons: { icon: "/icon.png", apple: "/icon.png" },
   openGraph: {
-    title: config.title,
-    description: config.description.short,
-    url: config.site,
-    images: [
-      {
-        url: config.ogImg,
-        width: 800,
-        height: 600,
-        alt: "Portfolio preview",
-      },
-    ],
     type: "website",
+    locale: "en_US",
+    url: site.url,
+    title: site.title,
+    description: site.description,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: site.title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: config.title,
-    description: config.description.short,
-    images: [config.ogImg],
-  },
-  robots: {
-    index: true,
-    follow: true,
+    title: site.title,
+    description: site.description,
+    images: ["/og.png"],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e0e0e" },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="es"
-      className={[
-        spaceGroteskSans.variable,
-        unbounded.variable,
-        "font-sans",
-      ].join(" ")}
-      suppressHydrationWarning
-    >
-      <head>
-        {/* The Spline runtime lazy-loads its wasm from unpkg; warm the
-            connection early so the 3D scene starts faster. */}
-        <link rel="preconnect" href="https://unpkg.com" crossOrigin="anonymous" />
-        {process.env.UMAMI_SITE_ID && UMAMI_SRC && (
-          <Script
-            defer
-            src={UMAMI_SRC}
-            data-website-id={process.env.UMAMI_SITE_ID}
-          />
-        )}
-      </head>
-      <body>
-        <Providers>
-          <SiteFrame>{children}</SiteFrame>
-        </Providers>
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
-      </body>
+    <html lang="en" className={sans.variable}>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }
